@@ -1,0 +1,197 @@
+.Nav {
+  display: flex;
+  width: 100%;
+  height: 12vh;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15%;
+}
+
+.Nav .logo .imgContainer {
+  width: 60px;
+  height: 60px;
+}
+
+.Nav .logo .imgContainer img {
+  width: inherit;
+}
+
+.Nav .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.Nav .right ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  font-weight: 600;
+}
+
+.Nav .right ul a {
+  text-decoration: none;
+  color: var(--white);
+  font-size: 0.9rem;
+  transition: 200ms ease-in-out;
+  white-space: nowrap;
+}
+
+.Nav .right ul a:hover {
+  color: var(--grey);
+}
+
+.Nav .right .language {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.Nav .right .language p {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.Nav .right .language .imgContainer {
+  width: 40px;
+}
+
+.Nav .right .language .imgContainer img {
+  width: inherit;
+}
+
+.Nav .right .language .changeLanguage {
+  position: absolute;
+  top: 5vh;
+  background-color: var(--white);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  animation: langMenuHeight 400ms ease-in-out forwards;
+}
+
+.Nav .right .language .changeLanguage .lang {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 15px;
+  padding: 0 20px;
+  transition: 200ms ease-in-out;
+  animation: navMenuOpacity 300ms ease-in-out forwards;
+  animation-delay: 300ms;
+  transition: 200ms ease-in-out;
+  opacity: 0;
+  user-select: none;
+}
+
+.Nav .right .language .changeLanguage .lang:hover {
+  background-color: var(--veryLightBlue);
+  cursor: pointer;
+}
+
+.Nav .right .language .changeLanguage .lang p {
+  color: var(--black);
+}
+
+.Nav .burger {
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.Nav .burger .line1,
+.Nav .burger .line2,
+.Nav .burger .line3 {
+  width: 30px;
+  height: 3px;
+  border-radius: 10px;
+  background-color: var(--white);
+}
+
+.Nav .burger .burgerMenu {
+  position: absolute;
+  top: 5vh;
+  left: -160%;
+  background-color: var(--white);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 250px;
+  list-style: none;
+  animation: navMenuHeight 400ms ease-in-out forwards;
+}
+
+.Nav .burger .burgerMenu li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  transition: 200ms ease-in-out;
+  height: 50px;
+  outline: none;
+  animation: navMenuOpacity 300ms ease-in-out forwards;
+  animation-delay: 300ms;
+  transition: 200ms ease-in-out;
+  opacity: 0;
+  user-select: none;
+}
+
+.Nav .burger .burgerMenu li:hover {
+  background-color: var(--veryLightBlue);
+  user-select: none;
+}
+
+.Nav .burger .burgerMenu li a {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 30px;
+  outline: none;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes langMenuHeight {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: calc(50px * 3);
+  }
+}
+
+@keyframes navMenuHeight {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: calc(50px * 5);
+  }
+}
+
+@keyframes navMenuOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* ---------------- DashboardNav ------------------- */

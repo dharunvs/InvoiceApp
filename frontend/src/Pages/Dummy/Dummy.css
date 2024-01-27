@@ -1,0 +1,34 @@
+.Dummy {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Dummy .content {
+  width: 500px;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.Dummy .content p {
+  font-size: 1.2rem;
+}
+
+.Dummy .content ul li {
+  transform: translateX(20px);
+}
+.Dummy .content ul li a {
+  color: blueviolet;
+  font-style: italic;
+}
+
+.Dummy .content p span {
+  font-weight: 600;
+}

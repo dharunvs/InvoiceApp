@@ -1,0 +1,186 @@
+.Menu,
+.MenuHide {
+  width: var(--dashboarMenuWidth);
+  /* height: calc(100vh - var(--dashboardNavHeight)); */
+  min-height: 100vh;
+  background-color: var(--white);
+  box-shadow: var(--boxShadow);
+  position: fixed;
+  z-index: 99;
+  padding-top: var(--dashboardNavHeight);
+}
+
+.menuFiller {
+  width: var(--dashboarMenuWidth);
+  height: calc(100vh - var(--dashboardNavHeight));
+  background-color: var(--white);
+}
+
+.Menu h2,
+.MenuHide h2 {
+  text-align: center;
+  padding: 18px;
+  font-weight: 400;
+}
+
+.Menu .menuLine,
+.MenuHide .menuLine {
+  width: 60%;
+  height: 1px;
+  margin: 0 auto;
+  background-color: var(--lightBlue);
+}
+
+.Menu a,
+.MenuHide a {
+  text-decoration: none;
+}
+
+.Menu ul,
+.MenuHide ul {
+  width: 100%;
+  padding: 12px 20%;
+  list-style: none;
+}
+
+.Menu ul li,
+.MenuHide ul li {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 15px;
+  padding: 10px 0;
+  position: relative;
+}
+
+.Menu ul li .active,
+.MenuHide ul li .active,
+.Menu ul li .inactive,
+.MenuHide ul li .inactive {
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: -12%;
+  transform: translateY(-50%);
+}
+
+.Menu ul li .active,
+.MenuHide ul li .active {
+  background-color: var(--lightGreen);
+}
+
+.Menu ul .InvoicesMenuLink svg,
+.MenuHide ul .InvoicesMenuLink svg {
+  fill: cyan;
+}
+.Menu ul .CustomersMenuLink svg,
+.MenuHide ul .CustomersMenuLink svg {
+  fill: rgb(0, 255, 98);
+}
+.Menu ul .MyBusinessMenuLink svg,
+.MenuHide ul .MyBusinessMenuLink svg {
+  fill: rgb(0, 162, 255);
+}
+.Menu ul .InvoiceJournalMenuLink svg,
+.MenuHide ul .InvoiceJournalMenuLink svg {
+  fill: rgb(0, 183, 255);
+}
+.Menu ul .PriceListMenuLink svg,
+.MenuHide ul .PriceListMenuLink svg {
+  fill: rgb(255, 174, 0);
+}
+.Menu ul .MultipleInvoicingMenuLink svg,
+.MenuHide ul .MultipleInvoicingMenuLink svg {
+  fill: rgb(0, 195, 255);
+}
+.Menu ul .UnpaidInvoicesMenuLink svg,
+.MenuHide ul .UnpaidInvoicesMenuLink svg {
+  fill: rgb(255, 0, 64);
+}
+.Menu ul .OfferMenuLink svg,
+.MenuHide ul .OfferMenuLink svg {
+  fill: rgb(255, 217, 0);
+}
+.Menu ul .InventoryControlMenuLink svg,
+.MenuHide ul .InventoryControlMenuLink svg {
+  fill: rgb(0, 225, 255);
+}
+.Menu ul .MemberInvoicingMenuLink svg,
+.MenuHide ul .MemberInvoicingMenuLink svg {
+  fill: rgb(0, 162, 255);
+}
+.Menu ul .ImportExportMenuLink svg,
+.MenuHide ul .ImportExportMenuLink svg {
+  fill: rgb(174, 0, 255);
+}
+.Menu ul .LogoutMenuLink svg,
+.MenuHide ul .LogoutMenuLink svg {
+  fill: rgb(0, 255, 200);
+}
+
+.MenuHide {
+  transform: translateX(calc(var(--dashboarMenuWidth) * -1));
+}
+
+/* Styles for smaller screens (up to 600px) */
+@media only screen and (max-width: 600px) {
+  /* Your CSS styles for small screens */
+  .menuFiller {
+    width: 0;
+  }
+
+  .Menu,
+  .MenuHide {
+    position: fixed;
+  }
+
+  .Menu h2,
+  .MenuHide h2 {
+    display: none;
+  }
+
+  .Menu ul,
+  .MenuHide ul {
+    padding: 0 20%;
+    padding-top: 10px;
+  }
+
+  .Menu .menuLine,
+  .MenuHide .menuLine {
+    display: none;
+  }
+
+  .Menu ul li,
+  .MenuHide ul li {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+
+/* Styles for tablets in portrait and landscape modes (601px to 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  /* Your CSS styles for tablets */
+  .menuFiller {
+    width: 0;
+  }
+}
+
+/* Styles for larger tablets in landscape mode (1025px to 1366px) */
+@media only screen and (min-width: 1025px) and (max-width: 1366px) {
+  /* Your CSS styles for larger tablets */
+  .menuFiller {
+    width: 0;
+  }
+}
+
+/* Styles for mobile phones in landscape mode (max-width: 600px) */
+@media only screen and (max-width: 600px),
+  only screen and (max-device-width: 600px) and (orientation: landscape) {
+  /* Your CSS styles for mobile phones in landscape mode */
+  .menuFiller {
+    width: 0;
+  }
+}

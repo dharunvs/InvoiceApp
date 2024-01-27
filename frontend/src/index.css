@@ -1,0 +1,61 @@
+:root {
+  --white: #fff;
+  --black: #444;
+  --veryLightBlue: rgb(203, 231, 255);
+  --lightBlue: rgb(31, 132, 226);
+  --grey: #d1d1d1;
+  --darkGrey: #818181;
+  --lightGreen: rgb(49, 255, 118);
+  --green: rgb(0, 161, 54);
+
+  --dashboarMenuWidth: 300px;
+  --dashboardNavHeight: 12vh;
+  --profileIcon: 70px;
+
+  --boxShadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--white);
+}
+
+.App {
+  width: 100%;
+  height: 100vh;
+  background: url("./Assets//Images/background.jpg");
+  background-position: fixed;
+  background-size: cover;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Styles for smaller screens (up to 600px) */
+@media only screen and (max-width: 600px) {
+  /* Your CSS styles for small screens */
+}
+
+/* Styles for tablets in portrait and landscape modes (601px to 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  /* Your CSS styles for tablets */
+}
+
+/* Styles for larger tablets in landscape mode (1025px to 1366px) */
+@media only screen and (min-width: 1025px) and (max-width: 1366px) {
+  /* Your CSS styles for larger tablets */
+}
+
+/* Styles for mobile phones in landscape mode (max-width: 600px) */
+@media only screen and (max-width: 600px),
+  only screen and (max-device-width: 600px) and (orientation: landscape) {
+  /* Your CSS styles for mobile phones in landscape mode */
+}

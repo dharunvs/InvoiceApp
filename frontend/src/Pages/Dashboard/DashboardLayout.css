@@ -1,0 +1,36 @@
+.DashboardLayout {
+  display: flex;
+  background-color: var(--white);
+}
+
+.dashboardPages {
+  padding-top: var(--dashboardNavHeight);
+  width: calc(100vw - var(--dashboarMenuWidth));
+  /* height: calc(100vh - var(--dashboardNavHeight));  */
+  min-height: 100vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .dashboardPages {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .dashboardPages {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1366px) {
+  .dashboardPages {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px),
+  only screen and (max-device-width: 600px) and (orientation: landscape) {
+  .dashboardPages {
+    width: 100%;
+  }
+}

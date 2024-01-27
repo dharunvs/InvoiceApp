@@ -1,0 +1,95 @@
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 0 auto;
+}
+
+thead {
+  z-index: 2;
+  background-color: var(--white);
+  position: sticky;
+  top: 0;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  padding: 8px 12px;
+}
+
+th div {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 5px;
+}
+
+td div.customBorder {
+  border: 1px solid var(--lightBlue);
+  padding: 0 12px;
+  height: 40px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+tr {
+  position: relative;
+}
+
+tr .arrowRight {
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+}
+
+tr .arrowRightBlocker {
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  background-color: var(--white);
+  width: 40px;
+  height: 40px;
+}
+
+thead tr th div.ArticleNo svg {
+  fill: rgb(0, 204, 255);
+}
+
+thead tr th div.ProductService svg {
+  fill: rgb(0, 253, 97);
+}
+
+tbody tr div.arrowRight svg {
+  fill: rgb(0, 89, 255);
+}
+
+@media only screen and (max-width: 350px) {
+  th,
+  td {
+    font-size: 0.8rem;
+    padding: 4px;
+  }
+
+  th {
+    padding: 4px 6px;
+  }
+
+  th div {
+    gap: 2px;
+  }
+
+  td div.customBorder {
+    padding: 0 8px;
+    height: 30px;
+    border-radius: 10px;
+  }
+}

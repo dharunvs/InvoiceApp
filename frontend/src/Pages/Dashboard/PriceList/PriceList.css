@@ -1,0 +1,184 @@
+.PriceList {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* .FullWidth {
+  width: 100vw;
+  transform: translateX(calc(var(--dashboarMenuWidth) * -0.45));
+} */
+
+.PriceList .priceListController {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  /* padding-left: 4%; */
+  height: 15vh;
+  /* background-color: rebeccapurple; */
+}
+
+.PriceList .priceListController .left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.PriceList .priceListController .left .input {
+  border: 1px solid var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 0 10px;
+}
+
+.PriceList .priceListController .left .input input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.PriceList .priceListController .left .input input::placeholder {
+  color: var(--grey);
+  font-weight: 600;
+}
+
+.PriceList .priceListController .left .input svg {
+  fill: rgb(0, 195, 255);
+}
+
+.PriceList .priceListController .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.PriceList .priceListController .right button {
+  background-color: var(--white);
+  border-radius: 20px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  outline: none;
+  border: none;
+  /* border: 1px solid var(--grey); */
+  box-shadow: var(--boxShadow);
+}
+
+.PriceList .priceListController .right button p {
+  font-size: 1rem;
+  color: var(--darkGrey);
+  font-weight: 600;
+}
+
+.PriceList .priceListController .right button.NewProduct svg {
+  fill: rgb(0, 255, 98);
+}
+.PriceList .priceListController .right button.PrintList svg {
+  fill: rgb(0, 204, 255);
+}
+.PriceList .priceListController .right button.AdvancedMode svg {
+  fill: rgb(0, 68, 255);
+}
+
+.PriceList .tableContainer {
+  width: 100%;
+  height: calc(100vh - var(--dashboardNavHeight) - 15vh - 40px);
+  margin: 0 auto;
+  overflow-y: scroll;
+}
+
+@media only screen and (max-width: 350px) {
+  .PriceList .priceListController .right button p {
+    display: none;
+  }
+  .PriceList .priceListController {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+    height: max-content;
+    gap: 20px;
+  }
+
+  .PriceList .priceListController .left {
+    width: 90%;
+  }
+
+  .PriceList .priceListController .left .input {
+    width: 100%;
+  }
+
+  .PriceList .priceListController .left .input input {
+    width: 100%;
+  }
+  .PriceList .priceListController .right {
+    justify-content: space-between;
+    width: 80%;
+  }
+
+  .PriceList .priceListController .right button {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 351px) and (max-width: 600px) {
+  .PriceList .priceListController .right button p {
+    display: none;
+  }
+  .PriceList .priceListController {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+    height: max-content;
+    gap: 20px;
+  }
+
+  .PriceList .priceListController .left {
+    width: 90%;
+  }
+
+  .PriceList .priceListController .left .input {
+    width: 100%;
+  }
+
+  .PriceList .priceListController .left .input input {
+    width: 100%;
+  }
+  .PriceList .priceListController .right {
+    justify-content: space-between;
+    width: 80%;
+  }
+
+  .PriceList .priceListController .right button {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .PriceList .priceListController .right button p {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1366px) {
+  /* .PriceList .priceListController .right button p {
+    display: none;
+  } */
+}
+
+@media only screen and (max-width: 600px),
+  only screen and (max-device-width: 600px) and (orientation: landscape) {
+  .PriceList .priceListController .right button p {
+    display: none;
+  }
+}

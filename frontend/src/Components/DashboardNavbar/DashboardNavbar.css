@@ -1,0 +1,105 @@
+.DashboardNav {
+  width: 100%;
+  height: var(--dashboardNavHeight);
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--lightBlue);
+  z-index: 999;
+  position: fixed;
+}
+
+.DashboardNav .burger {
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.DashboardNav .burger .line1,
+.DashboardNav .burger .line2,
+.DashboardNav .burger .line3 {
+  width: 40px;
+  height: 3px;
+  border-radius: 10px;
+  background-color: var(--white);
+}
+
+.DashboardNav .profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.DashboardNav .profile .imgContainer {
+  width: var(--profileIcon);
+  height: var(--profileIcon);
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--white);
+}
+
+.DashboardNav .profile .imgContainer img {
+  width: inherit;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.DashboardNav .profile .content p {
+  color: var(--white);
+}
+
+.DashboardNav .profile .content p:nth-child(1) {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.DashboardNav .language {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.DashboardNav .language .imgContainer {
+  width: 60px;
+}
+
+.DashboardNav .language .imgContainer img {
+  width: inherit;
+}
+
+.DashboardNav .language p {
+  color: var(--white);
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  /* Your CSS styles for tablets */
+}
+
+/* Styles for larger tablets in landscape mode (1025px to 1366px) */
+@media only screen and (min-width: 1025px) and (max-width: 1366px) {
+  /* Your CSS styles for larger tablets */
+  .menuFiller {
+    width: 0;
+  }
+}
+
+/* Styles for mobile phones in landscape mode (max-width: 600px) */
+@media only screen and (max-width: 600px),
+  only screen and (max-device-width: 600px) and (orientation: landscape) {
+  /* Your CSS styles for mobile phones in landscape mode */
+  .menuFiller {
+    width: 0;
+  }
+}
