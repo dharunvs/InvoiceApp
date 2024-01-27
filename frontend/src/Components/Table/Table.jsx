@@ -3,7 +3,6 @@ import "./Table.css";
 import Assets from "../../Assets";
 
 const Table = ({ columns, rows, skipRows }) => {
-  // skipRows = ["In Stock"];
   const calculateColumnWidth = (totalColumns, specifiedWidthColumns) => {
     const numberOfAutoWidthColumns =
       totalColumns - specifiedWidthColumns.length;
@@ -26,8 +25,8 @@ const Table = ({ columns, rows, skipRows }) => {
     <table>
       <thead>
         <tr>
-          {/* <div className="arrowRightBlocker"></div>
-           */}
+          <th className="arrowRightBlocker"></th>
+
           {columns.map(
             (column, index) =>
               !skipRows.includes(column.name) && (
@@ -49,6 +48,7 @@ const Table = ({ columns, rows, skipRows }) => {
                 </th>
               )
           )}
+          <th></th>
         </tr>
       </thead>
 
@@ -56,9 +56,9 @@ const Table = ({ columns, rows, skipRows }) => {
         {rows.map((row, rowIndex) => (
           <>
             <tr key={rowIndex}>
-              {/* <div className="arrowRight">
-              {rowIndex == num && <Assets.Icons.RightArrow />}
-            </div> */}
+              <td style={{ width: "2%", padding: 0 }}>
+                {rowIndex == num && <Assets.Icons.RightArrow />}
+              </td>
 
               {columns.map(
                 (column, colIndex) =>
@@ -89,7 +89,9 @@ const Table = ({ columns, rows, skipRows }) => {
                     </td>
                   )
               )}
-              <td></td>
+              <td style={{ width: "2%", padding: 0 }}>
+                <Assets.Icons.HorizontalDots />
+              </td>
             </tr>
           </>
         ))}

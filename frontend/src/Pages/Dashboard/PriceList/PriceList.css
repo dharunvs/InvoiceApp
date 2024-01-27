@@ -49,6 +49,7 @@
 
 .PriceList .priceListController .left .input svg {
   fill: rgb(0, 195, 255);
+  cursor: pointer;
 }
 
 .PriceList .priceListController .right {
@@ -70,6 +71,12 @@
   border: none;
   /* border: 1px solid var(--grey); */
   box-shadow: var(--boxShadow);
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+}
+
+.PriceList .priceListController .right button:hover {
+  background-color: var(--veryLightBlue);
 }
 
 .PriceList .priceListController .right button p {

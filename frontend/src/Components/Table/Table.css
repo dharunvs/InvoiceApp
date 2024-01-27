@@ -22,6 +22,11 @@ th {
   padding: 8px 12px;
 }
 
+td svg {
+  fill: var(--lightBlue);
+  cursor: pointer;
+}
+
 th div {
   display: flex;
   align-items: center;
