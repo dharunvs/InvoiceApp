@@ -7,6 +7,28 @@ function Navbar() {
   const [burgerMenuActive, setBurgerMenuActive] = useState(false);
   const [langMenuActive, setLangMenuActive] = useState(false);
 
+  const [device, setDevice] = useState("unknown");
+
+  useEffect(() => {
+    const updateDevice = () => {
+      const windowWidth = document.documentElement.clientWidth;
+
+      if (windowWidth <= 600) {
+        setDevice("mobile");
+      } else if (windowWidth <= 1366) {
+        setDevice("tablet");
+      } else {
+        setDevice("desktop");
+      }
+    };
+
+    updateDevice();
+    window.addEventListener("resize", updateDevice);
+    return () => {
+      window.removeEventListener("resize", updateDevice);
+    };
+  }, []);
+
   const navlinks = [
     {
       name: "Home",
@@ -36,43 +58,49 @@ function Navbar() {
 
   return (
     <div className="Nav">
-      {/* <div className="logo">
-        <div className="imgContainer">
-          <img src={Assets.Images.logo} alt="logo" />
+      {device == "desktop" ? (
+        <div className="logo">
+          <div className="imgContainer">
+            <img src={Assets.Images.logo} alt="logo" />
+          </div>
         </div>
-      </div> */}
-      <div
-        className="burger"
-        onClick={() => {
-          setBurgerMenuActive(!burgerMenuActive);
-          setLangMenuActive(false);
-        }}
-      >
-        <div className="line1"></div>
-        <div className="line2"></div>
-        <div className="line3"></div>
-        {burgerMenuActive && (
-          <ul className="burgerMenu">
+      ) : (
+        <div
+          className="burger"
+          onClick={() => {
+            setBurgerMenuActive(!burgerMenuActive);
+            setLangMenuActive(false);
+          }}
+        >
+          <div className="line1"></div>
+          <div className="line2"></div>
+          <div className="line3"></div>
+          {burgerMenuActive && (
+            <ul className="burgerMenu">
+              {navlinks.map((item) => (
+                <li
+                  key={item.name}
+                  className={item.name.replace(/[\s/]/g, "") + "NavLink"}
+                >
+                  <Link to={item.link}>{item.name}</Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+
+      <div className="right">
+        {device == "desktop" && (
+          <ul>
             {navlinks.map((item) => (
-              <li
-                key={item.name}
-                className={item.name.replace(/[\s/]/g, "") + "NavLink"}
-              >
+              <li key={item.name} className={item.name.replace(/[\s/]/g, "")}>
                 <Link to={item.link}>{item.name}</Link>
               </li>
             ))}
           </ul>
         )}
-      </div>
 
-      <div className="right">
-        <ul>
-          {navlinks.map((item) => (
-            <li key={item.name} className={item.name.replace(/[\s/]/g, "")}>
-              <Link to={item.link}>{item.name}</Link>
-            </li>
-          ))}
-        </ul>
         <div
           className="language"
           onClick={() => {

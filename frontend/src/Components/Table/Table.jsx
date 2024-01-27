@@ -54,39 +54,44 @@ const Table = ({ columns, rows, skipRows }) => {
 
       <tbody>
         {rows.map((row, rowIndex) => (
-          <tr key={rowIndex}>
-            {/* <div className="arrowRight">
+          <>
+            <tr key={rowIndex}>
+              {/* <div className="arrowRight">
               {rowIndex == num && <Assets.Icons.RightArrow />}
             </div> */}
 
-            {columns.map(
-              (column, colIndex) =>
-                !skipRows.includes(column.name) && (
-                  <td
-                    key={colIndex}
-                    style={{
-                      width:
-                        column.width ||
-                        calculateColumnWidth(
-                          columns.length,
-                          columns.filter((col) => col.width)
-                        ),
-                    }}
-                  >
-                    <div
-                      className={
-                        column.name != "Dots" ? "customBorder" : "customBorder"
-                      }
+              {columns.map(
+                (column, colIndex) =>
+                  !skipRows.includes(column.name) && (
+                    <td
+                      key={colIndex}
+                      style={{
+                        width:
+                          column.width ||
+                          calculateColumnWidth(
+                            columns.length,
+                            columns.filter((col) => col.width)
+                          ),
+                      }}
                     >
-                      <p>{row[column.name]}</p>
-                    </div>
-                  </td>
-                )
-            )}
-            {/* <td style={{ padding: 0, width: "20px" }}>
-              <Assets.Icons.HorizontalDots />
-            </td> */}
-          </tr>
+                      <div
+                        className={
+                          column.name != "Dots"
+                            ? "customBorder"
+                            : "customBorder"
+                        }
+                      >
+                        <p>
+                          {/* {column.name != "Dots" ? row[column.name] : "..."} */}
+                          {row[column.name]}
+                        </p>
+                      </div>
+                    </td>
+                  )
+              )}
+              <td></td>
+            </tr>
+          </>
         ))}
       </tbody>
     </table>

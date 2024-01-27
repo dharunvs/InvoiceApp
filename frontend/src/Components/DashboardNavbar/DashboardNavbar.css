@@ -11,7 +11,7 @@
 }
 
 .DashboardNav .burger {
-  width: 20px;
+  width: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,13 +85,44 @@
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
   /* Your CSS styles for tablets */
+  .DashboardNav .language .imgContainer {
+    width: 40px;
+  }
+
+  .DashboardNav .burger {
+    width: 30px;
+    gap: 6px;
+  }
+
+  .DashboardNav .burger .line1,
+  .DashboardNav .burger .line2,
+  .DashboardNav .burger .line3 {
+    width: 30px;
+    height: 2px;
+  }
 }
 
 /* Styles for larger tablets in landscape mode (1025px to 1366px) */
 @media only screen and (min-width: 1025px) and (max-width: 1366px) {
   /* Your CSS styles for larger tablets */
+
+  .DashboardNav .language .imgContainer {
+    width: 40px;
+  }
   .menuFiller {
     width: 0;
+  }
+
+  .DashboardNav .burger {
+    width: 30px;
+    gap: 6px;
+  }
+
+  .DashboardNav .burger .line1,
+  .DashboardNav .burger .line2,
+  .DashboardNav .burger .line3 {
+    width: 30px;
+    height: 2px;
   }
 }
 
@@ -99,7 +130,23 @@
 @media only screen and (max-width: 600px),
   only screen and (max-device-width: 600px) and (orientation: landscape) {
   /* Your CSS styles for mobile phones in landscape mode */
+  .DashboardNav .language .imgContainer {
+    width: 40px;
+  }
+
   .menuFiller {
     width: 0;
+  }
+
+  .DashboardNav .burger {
+    width: 30px;
+    gap: 6px;
+  }
+
+  .DashboardNav .burger .line1,
+  .DashboardNav .burger .line2,
+  .DashboardNav .burger .line3 {
+    width: 30px;
+    height: 2px;
   }
 }

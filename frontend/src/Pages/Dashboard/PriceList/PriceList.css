@@ -181,4 +181,33 @@
   .PriceList .priceListController .right button p {
     display: none;
   }
+  .PriceList .priceListController {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+    height: max-content;
+    gap: 20px;
+  }
+
+  .PriceList .priceListController .left {
+    width: 90%;
+  }
+
+  .PriceList .priceListController .left .input {
+    width: 100%;
+  }
+
+  .PriceList .priceListController .left .input input {
+    width: 100%;
+  }
+  .PriceList .priceListController .right {
+    justify-content: space-between;
+    width: 80%;
+  }
+
+  .PriceList .priceListController .right button {
+    width: 100%;
+  }
 }

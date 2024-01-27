@@ -32,3 +32,9 @@
 .Dummy .content p span {
   font-weight: 600;
 }
+
+@media only screen and (max-width: 720px) {
+  .Dummy .content {
+    width: 90%;
+  }
+}

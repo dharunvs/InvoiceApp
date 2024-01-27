@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "./Terms.css";
 
@@ -12,6 +12,28 @@ function Terms({ setNav }) {
     }
   }, [location.pathname]);
   const [burgerMenuActive2, setBurgerMenuActive2] = useState(false);
+
+  const [device, setDevice] = useState("unknown");
+
+  useEffect(() => {
+    const updateDevice = () => {
+      const windowWidth = document.documentElement.clientWidth;
+
+      if (windowWidth <= 600) {
+        setDevice("mobile");
+      } else if (windowWidth <= 1366) {
+        setDevice("tablet");
+      } else {
+        setDevice("desktop");
+      }
+    };
+
+    updateDevice();
+    window.addEventListener("resize", updateDevice);
+    return () => {
+      window.removeEventListener("resize", updateDevice);
+    };
+  }, []);
 
   return (
     <div className="Terms">

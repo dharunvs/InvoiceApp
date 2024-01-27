@@ -38,6 +38,20 @@ function PriceList({ menuHide, toggleMenu, setNav }) {
     };
   }, []);
 
+  const [orientation, setOrientation] = useState(window.orientation);
+
+  useEffect(() => {
+    const handleOrientationChange = () => {
+      setOrientation(window.orientation);
+    };
+
+    window.addEventListener("orientationchange", handleOrientationChange);
+
+    return () => {
+      window.removeEventListener("orientationchange", handleOrientationChange);
+    };
+  }, []);
+
   useEffect(() => {
     switch (device) {
       case "mobile":
@@ -59,7 +73,17 @@ function PriceList({ menuHide, toggleMenu, setNav }) {
       default:
         setSkipRows([]);
     }
-  }, [device]);
+
+    if (orientation == 90 || orientation == -90) {
+      setSkipRows([
+        "Article No.",
+        "In Price",
+        "Unit",
+        "In Stock",
+        "Description",
+      ]);
+    }
+  }, [device, orientation]);
 
   const [skipRows, setSkipRows] = useState([]);
   const table = {
@@ -79,45 +103,10 @@ function PriceList({ menuHide, toggleMenu, setNav }) {
       { name: "Price" },
       { name: "Unit" },
       { name: "In Stock" },
+      // { name: "Dots" },
       { name: "Description", width: "30%" },
     ],
     rows: [
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
       {
         "Article No.": "1234567890",
         "Product/Service": "This is a test product",
