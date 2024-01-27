@@ -4,7 +4,7 @@ import Assets from "../../Assets";
 
 import "./Menu.css";
 
-function Menu({ menuHide, toggleMenu }) {
+function Menu({ menuHide, showMenu, hideMenu, toggleMenu }) {
   const location = useLocation();
 
   const menu = [
@@ -79,6 +79,7 @@ function Menu({ menuHide, toggleMenu }) {
             <li
               key={item.name}
               className={item.name.replace(/[\s/]/g, "") + "MenuLink"}
+              onClick={hideMenu}
             >
               <div
                 className={

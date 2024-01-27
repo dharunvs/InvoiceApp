@@ -184,3 +184,22 @@
     width: 0;
   }
 }
+
+@media only screen and (max-width: 900px),
+  only screen and (max-device-width: 900px) and (orientation: landscape) {
+  .Menu h2,
+  .MenuHide h2 {
+    display: none;
+  }
+
+  .Menu .menuLine,
+  .MenuHide .menuLine {
+    display: none;
+  }
+
+  .Menu,
+  .MenuHide {
+    height: calc(100vh - var(--dashboardNavHeight));
+    overflow-y: auto;
+  }
+}

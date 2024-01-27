@@ -171,15 +171,80 @@
   }
 }
 
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
+@media only screen and (min-width: 601px) and (max-width: 1023px) {
   .PriceList .priceListController .right button p {
     display: none;
   }
+
+  .PriceList .priceListController .right button p {
+    display: none;
+  }
+  .PriceList .priceListController {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+    height: max-content;
+    gap: 20px;
+  }
+
+  .PriceList .priceListController .left {
+    width: 90%;
+  }
+
+  .PriceList .priceListController .left .input {
+    width: 100%;
+  }
+
+  .PriceList .priceListController .left .input input {
+    width: 100%;
+  }
+  .PriceList .priceListController .right {
+    justify-content: space-between;
+    width: 80%;
+  }
+
+  .PriceList .priceListController .right button {
+    width: 100%;
+  }
 }
 
-@media only screen and (min-width: 1025px) and (max-width: 1366px) {
+@media only screen and (min-width: 1024px) and (max-width: 1366px) {
   /* .PriceList .priceListController .right button p {
     display: none;
+  } */
+  /* .PriceList .priceListController .right button p {
+    display: none;
+  }
+  .PriceList .priceListController {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+    height: max-content;
+    gap: 20px;
+  }
+
+  .PriceList .priceListController .left {
+    width: 90%;
+  }
+
+  .PriceList .priceListController .left .input {
+    width: 100%;
+  }
+
+  .PriceList .priceListController .left .input input {
+    width: 100%;
+  }
+  .PriceList .priceListController .right {
+    justify-content: space-between;
+    width: 80%;
+  }
+
+  .PriceList .priceListController .right button {
+    width: 100%;
   } */
 }
 

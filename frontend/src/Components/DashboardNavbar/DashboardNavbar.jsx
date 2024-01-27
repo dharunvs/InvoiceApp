@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Assets from "../../Assets";
 import "./DashboardNavbar.css";
 
-function DashboardNavbar({ menuHide, toggleMenu }) {
+function DashboardNavbar({ menuHide, showMenu, hideMenu, toggleMenu }) {
   const [device, setDevice] = useState("unknown");
 
   useEffect(() => {
@@ -38,12 +38,7 @@ function DashboardNavbar({ menuHide, toggleMenu }) {
           </div>
         </div>
       ) : (
-        <div
-          className="burger"
-          onClick={() => {
-            toggleMenu(); // Call the toggleMenu function passed from DashboardLayout
-          }}
-        >
+        <div className="burger" onClick={toggleMenu}>
           <div className="line1"></div>
           <div className="line2"></div>
           <div className="line3"></div>

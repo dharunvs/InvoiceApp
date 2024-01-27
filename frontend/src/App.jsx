@@ -38,6 +38,14 @@ function App() {
     setMenuHide(!menuHide);
   };
 
+  const showMenu = () => {
+    setMenuHide(false);
+  };
+
+  const hideMenu = () => {
+    setMenuHide(true);
+  };
+
   useEffect(() => {
     switch (device) {
       case "mobile":
@@ -62,6 +70,8 @@ function App() {
           <Components.DashboardNavbar
             // device={device}
             menuHide={menuHide}
+            showMenu={showMenu}
+            hideMenu={hideMenu}
             toggleMenu={toggleMenu}
           />
         ) : (
@@ -98,6 +108,8 @@ function App() {
             element={
               <Pages.DashboardLayout
                 menuHide={menuHide}
+                showMenu={showMenu}
+                hideMenu={hideMenu}
                 toggleMenu={toggleMenu}
                 setNav={setDashboardNav}
               />

@@ -4,7 +4,7 @@ import Pages from "..";
 import Components from "../../Components";
 import "./DashboardLayout.css";
 
-function DashboardLayout({ menuHide, toggleMenu, setNav }) {
+function DashboardLayout({ menuHide, showMenu, hideMenu, toggleMenu, setNav }) {
   const location = useLocation();
 
   useEffect(() => {
@@ -17,7 +17,12 @@ function DashboardLayout({ menuHide, toggleMenu, setNav }) {
 
   return (
     <div className="DashboardLayout">
-      <Components.Menu menuHide={menuHide} toggleMenu={toggleMenu} />
+      <Components.Menu
+        menuHide={menuHide}
+        showMenu={showMenu}
+        hideMenu={hideMenu}
+        toggleMenu={toggleMenu}
+      />
       <div className="menuFiller"></div>
       <div className={menuHide ? "dashboardPages" : "dashboardPages"}>
         <Routes>
@@ -26,6 +31,7 @@ function DashboardLayout({ menuHide, toggleMenu, setNav }) {
             element={
               <Pages.Dashboard.PriceList
                 menuHide={menuHide}
+                hideMenu={hideMenu}
                 toggleMenu={toggleMenu}
                 setNav={setNav}
               />
@@ -43,6 +49,7 @@ function DashboardLayout({ menuHide, toggleMenu, setNav }) {
             element={
               <Pages.Dashboard.PriceList
                 menuHide={menuHide}
+                hideMenu={hideMenu}
                 toggleMenu={toggleMenu}
                 setNav={setNav}
               />

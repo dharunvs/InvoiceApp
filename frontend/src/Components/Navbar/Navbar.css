@@ -138,6 +138,7 @@
   list-style: none;
   animation: navMenuHeight 400ms ease-in-out forwards;
   box-shadow: var(--boxShadow);
+  z-index: 99;
 }
 
 .Nav .burger .burgerMenu li {
@@ -184,7 +185,7 @@
     height: 0%;
   }
   100% {
-    height: calc(50px * 5);
+    height: calc(50px * 6);
   }
 }
 

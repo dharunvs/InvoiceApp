@@ -5,7 +5,7 @@ import Components from "../../../Components";
 import "./PriceList.css";
 import { useDeviceContext } from "../../../DeviceContext";
 
-function PriceList({ menuHide, toggleMenu, setNav }) {
+function PriceList({ menuHide, hideMenu, toggleMenu, setNav }) {
   // const device = useDeviceContext();
   const location = useLocation();
   useEffect(() => {
@@ -55,7 +55,7 @@ function PriceList({ menuHide, toggleMenu, setNav }) {
   useEffect(() => {
     switch (device) {
       case "mobile":
-        toggleMenu(true);
+        hideMenu();
         setSkipRows([
           "Article No.",
           "In Price",
@@ -107,6 +107,51 @@ function PriceList({ menuHide, toggleMenu, setNav }) {
       { name: "Description", width: "30%" },
     ],
     rows: [
+      {
+        "Article No.": "1234567890",
+        "Product/Service": "This is a test product",
+        "In Price": "900900",
+        Price: "9900900",
+        Unit: "kilometers/hour",
+        "In Stock": "9900900",
+        Description: "This is a big desctiption",
+      },
+      {
+        "Article No.": "1234567890",
+        "Product/Service": "This is a test product",
+        "In Price": "900900",
+        Price: "9900900",
+        Unit: "kilometers/hour",
+        "In Stock": "9900900",
+        Description: "This is a big desctiption",
+      },
+      {
+        "Article No.": "1234567890",
+        "Product/Service": "This is a test product",
+        "In Price": "900900",
+        Price: "9900900",
+        Unit: "kilometers/hour",
+        "In Stock": "9900900",
+        Description: "This is a big desctiption",
+      },
+      {
+        "Article No.": "1234567890",
+        "Product/Service": "This is a test product",
+        "In Price": "900900",
+        Price: "9900900",
+        Unit: "kilometers/hour",
+        "In Stock": "9900900",
+        Description: "This is a big desctiption",
+      },
+      {
+        "Article No.": "1234567890",
+        "Product/Service": "This is a test product",
+        "In Price": "900900",
+        Price: "9900900",
+        Unit: "kilometers/hour",
+        "In Stock": "9900900",
+        Description: "This is a big desctiption",
+      },
       {
         "Article No.": "1234567890",
         "Product/Service": "This is a test product",
