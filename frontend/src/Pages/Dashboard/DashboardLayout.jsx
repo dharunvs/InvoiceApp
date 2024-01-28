@@ -33,50 +33,67 @@ function DashboardLayout({ menuHide, showMenu, hideMenu, toggleMenu, setNav }) {
                 menuHide={menuHide}
                 hideMenu={hideMenu}
                 toggleMenu={toggleMenu}
+                showMenu={showMenu}
                 setNav={setNav}
               />
             }
           />
-          <Route path="invoices" element={<Pages.Dummy setNav={setNav} />} />
-          <Route path="customers" element={<Pages.Dummy setNav={setNav} />} />
-          <Route path="mybusiness" element={<Pages.Dummy setNav={setNav} />} />
           <Route
-            path="invoicejournal"
-            element={<Pages.Dummy setNav={setNav} />}
+            path="invoices"
+            element={<Pages.Dummy showMenu={showMenu} setNav={setNav} />}
           />
           <Route
-            path="pricelist"
+            path="customers"
+            element={<Pages.Dummy showMenu={showMenu} setNav={setNav} />}
+          />
+          <Route
+            path="my-business"
+            element={<Pages.Dummy showMenu={showMenu} setNav={setNav} />}
+          />
+          <Route
+            path="invoice-journal"
+            element={<Pages.Dummy showMenu={showMenu} setNav={setNav} />}
+          />
+          <Route
+            path="price-list"
             element={
               <Pages.Dashboard.PriceList
                 menuHide={menuHide}
                 hideMenu={hideMenu}
                 toggleMenu={toggleMenu}
+                showMenu={showMenu}
                 setNav={setNav}
               />
             }
           />
           <Route
-            path="multipleinvoicing"
-            element={<Pages.Dummy setNav={setNav} />}
-          />
-          <Route path="offer" element={<Pages.Dummy setNav={setNav} />} />
-          <Route
-            path="unpaidinvoices"
-            element={<Pages.Dummy setNav={setNav} />}
+            path="multiple-invoicing"
+            element={<Pages.Dummy showMenu={showMenu} setNav={setNav} />}
           />
           <Route
-            path="inventorycontrol"
-            element={<Pages.Dummy setNav={setNav} />}
+            path="offer"
+            element={<Pages.Dummy showMenu={showMenu} setNav={setNav} />}
           />
           <Route
-            path="memberinvoicing"
-            element={<Pages.Dummy setNav={setNav} />}
+            path="unpaid-invoices"
+            element={<Pages.Dummy showMenu={showMenu} setNav={setNav} />}
           />
           <Route
-            path="importexport"
-            element={<Pages.Dummy setNav={setNav} />}
+            path="inventory-control"
+            element={<Pages.Dummy showMenu={showMenu} setNav={setNav} />}
           />
-          <Route path="logout" element={<Pages.Dummy setNav={setNav} />} />
+          <Route
+            path="member-invoicing"
+            element={<Pages.Dummy showMenu={showMenu} setNav={setNav} />}
+          />
+          <Route
+            path="import-export"
+            element={<Pages.Dummy showMenu={showMenu} setNav={setNav} />}
+          />
+          <Route
+            path="logout"
+            element={<Pages.Dummy showMenu={showMenu} setNav={setNav} />}
+          />
         </Routes>
       </div>
     </div>

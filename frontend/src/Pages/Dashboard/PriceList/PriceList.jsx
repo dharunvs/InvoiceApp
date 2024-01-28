@@ -1,13 +1,76 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
+import { baseURL } from "../../../data";
 import Assets from "../../../Assets";
 import Components from "../../../Components";
 import "./PriceList.css";
-import { useDeviceContext } from "../../../DeviceContext";
 
-function PriceList({ menuHide, hideMenu, toggleMenu, setNav }) {
-  // const device = useDeviceContext();
+function PriceList({ menuHide, showMenu, hideMenu, toggleMenu, setNav }) {
   const location = useLocation();
+  const [pageContent, setPageContent] = useState({});
+  const [device, setDevice] = useState("unknown");
+  const [orientation, setOrientation] = useState(window.orientation);
+  const [table, setTable] = useState({});
+  const [skipRows, setSkipRows] = useState([]);
+
+  const columnsPropertiesMap = [
+    {
+      name: "Article No.",
+      icon: <Assets.Icons.DownArrow />,
+      className: "ArticleNo",
+    },
+    {
+      name: "Product/Service",
+      icon: <Assets.Icons.DownArrow />,
+      className: "ProductService",
+      width: "30%",
+    },
+    { name: "Description", width: "30%" },
+  ];
+
+  useEffect(() => {
+    axios
+      .get(baseURL + "/webpagecontent/english")
+      .then((res) => res["data"])
+      .then((res) => {
+        setPageContent(res.content["Dashboard/Pricelist"]);
+        let columns = res.content["Dashboard/Pricelist"]["columns"];
+
+        axios
+          .get(baseURL + "/pricelist")
+          .then((res) => res["data"])
+          .then((res) => {
+            let rows = res;
+
+            columns = columns.map((column) => {
+              const matchingColumnProperty = columnsPropertiesMap.find(
+                (prop) => prop.name === column.name
+              );
+              return { ...column, ...matchingColumnProperty };
+            });
+
+            rows = rows.map((row) => convertKeys(row, columns));
+
+            setTable({
+              columns,
+              rows,
+            });
+          });
+      });
+  }, []);
+
+  const convertKeys = (row, columns) => {
+    const convertedRow = {};
+
+    for (const column of columns) {
+      const key = column.name.toLowerCase().replace(/[\s\/.]/g, "");
+      convertedRow[column.displayName] = row[key];
+    }
+
+    return convertedRow;
+  };
+
   useEffect(() => {
     if (location.pathname.toLowerCase().includes("/dashboard")) {
       setNav(true);
@@ -15,8 +78,6 @@ function PriceList({ menuHide, hideMenu, toggleMenu, setNav }) {
       setNav(false);
     }
   }, [location.pathname]);
-
-  const [device, setDevice] = useState("unknown");
 
   useEffect(() => {
     const updateDevice = () => {
@@ -28,6 +89,7 @@ function PriceList({ menuHide, hideMenu, toggleMenu, setNav }) {
         setDevice("tablet");
       } else {
         setDevice("desktop");
+        showMenu();
       }
     };
 
@@ -37,8 +99,6 @@ function PriceList({ menuHide, hideMenu, toggleMenu, setNav }) {
       window.removeEventListener("resize", updateDevice);
     };
   }, []);
-
-  const [orientation, setOrientation] = useState(window.orientation);
 
   useEffect(() => {
     const handleOrientationChange = () => {
@@ -85,202 +145,60 @@ function PriceList({ menuHide, hideMenu, toggleMenu, setNav }) {
     }
   }, [device, orientation]);
 
-  const [skipRows, setSkipRows] = useState([]);
-  const table = {
-    columns: [
-      {
-        name: "Article No.",
-        icon: <Assets.Icons.DownArrow />,
-        className: "ArticleNo",
-      },
-      {
-        name: "Product/Service",
-        icon: <Assets.Icons.DownArrow />,
-        className: "ProductService",
-        width: "30%",
-      },
-      { name: "In Price" },
-      { name: "Price" },
-      { name: "Unit" },
-      { name: "In Stock" },
-      // { name: "Dots" },
-      { name: "Description", width: "30%" },
-    ],
-    rows: [
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-      {
-        "Article No.": "1234567890",
-        "Product/Service": "This is a test product",
-        "In Price": "900900",
-        Price: "9900900",
-        Unit: "kilometers/hour",
-        "In Stock": "9900900",
-        Description: "This is a big desctiption",
-      },
-    ],
-  };
-
   return (
     <div className={menuHide ? "PriceList" : "PriceList"}>
       <div className="priceListController">
         <div className="left">
           <div className="input">
-            <input type="text" placeholder="Search Article No" />
+            <input
+              type="text"
+              placeholder={
+                pageContent["input"] != undefined ? pageContent["input"][0] : ""
+              }
+            />
             <Assets.Icons.Search />
           </div>
           <div className="input">
-            <input type="text" placeholder="Search Product" />
+            <input
+              type="text"
+              placeholder={
+                pageContent["input"] != undefined ? pageContent["input"][1] : ""
+              }
+            />
             <Assets.Icons.Search />
           </div>
         </div>
 
         <div className="right">
           <button className="NewProduct">
-            <p>New Product</p>
+            <p>
+              {pageContent["button"] != undefined && pageContent["button"][0]}
+            </p>
             <Assets.Icons.Plus />
           </button>
           <button className="PrintList">
-            <p>Print List</p>
+            <p>
+              {pageContent["button"] != undefined && pageContent["button"][1]}
+            </p>
             <Assets.Icons.Print />
           </button>
           <button className="AdvancedMode">
-            <p>Advanced Mode</p>
+            <p>
+              {pageContent["button"] != undefined && pageContent["button"][2]}
+            </p>
             <Assets.Icons.Toggle />
           </button>
         </div>
       </div>
 
       <div className="tableContainer">
-        <Components.Table
-          columns={table.columns}
-          rows={table.rows}
-          skipRows={skipRows}
-        />
+        {table.columns != undefined && table.rows != undefined && (
+          <Components.Table
+            columns={table.columns}
+            rows={table.rows}
+            skipRows={skipRows}
+          />
+        )}
       </div>
     </div>
   );

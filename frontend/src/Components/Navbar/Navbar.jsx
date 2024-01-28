@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
+import { baseURL } from "../../data";
 import Assets from "../../Assets";
 import "./Navbar.css";
 
@@ -29,32 +31,27 @@ function Navbar() {
     };
   }, []);
 
-  const navlinks = [
-    {
-      name: "Home",
-      link: "/",
-    },
-    {
-      name: "Order",
-      link: "/order",
-    },
-    {
-      name: "Terms",
-      link: "/terms",
-    },
-    {
-      name: "Our Customers",
-      link: "/customers",
-    },
-    {
-      name: "About Us",
-      link: "/about",
-    },
-    {
-      name: "Contact Us",
-      link: "/contact",
-    },
-  ];
+  const [navlinks, setNavLinks] = useState([]);
+
+  const [pageContent, setPageContent] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(baseURL + "/webpagecontent/english")
+      .then((res) => res["data"])
+      .then((res) => {
+        setPageContent(res.content["DashboardNav"]);
+        setNavLinks(res.content["DashboardNav"]["links"]);
+      });
+  }, []);
+
+  const handleClick = (event) => {
+    // Prevent the default navigation behavior
+    event.preventDefault();
+
+    // Add your additional logic here if needed
+    console.log("Link clicked, but navigation prevented.");
+  };
 
   return (
     <div className="Nav">
@@ -81,8 +78,15 @@ function Navbar() {
                 <li
                   key={item.name}
                   className={item.name.replace(/[\s/]/g, "") + "NavLink"}
+                  style={{ userSelect: "none" }}
                 >
-                  <Link to={item.link}>{item.name}</Link>
+                  <Link
+                    onClick={handleClick}
+                    to={item.link}
+                    style={{ pointerEvents: "auto" }}
+                  >
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>

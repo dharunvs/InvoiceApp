@@ -1,70 +1,112 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
+import { baseURL } from "../../data";
 import Assets from "../../Assets";
 
 import "./Menu.css";
 
 function Menu({ menuHide, showMenu, hideMenu, toggleMenu }) {
   const location = useLocation();
-
-  const menu = [
+  const [pageContent, setPageContent] = useState({});
+  const [menu, setMenu] = useState([]);
+  const [device, setDevice] = useState("unknown");
+  const menuIconMap = [
     {
       name: "Invoices",
-      link: "/dashboard/invoices",
       icon: <Assets.Icons.Invoices />,
     },
     {
       name: "Customers",
-      link: "/dashboard/customers",
       icon: <Assets.Icons.Customers />,
     },
     {
       name: "My Business",
-      link: "/dashboard/mybusiness",
       icon: <Assets.Icons.MyBusiness />,
     },
     {
       name: "Invoice Journal",
-      link: "/dashboard/invoicejournal",
       icon: <Assets.Icons.InvoiceJournal />,
     },
     {
       name: "Price List",
-      link: "/dashboard/pricelist",
       icon: <Assets.Icons.PriceList />,
     },
     {
       name: "Multiple Invoicing",
-      link: "/dashboard/multipleinvoicing",
       icon: <Assets.Icons.MultipleInvoicing />,
     },
     {
       name: "Unpaid Invoices",
-      link: "/dashboard/unpaidinvoices",
       icon: <Assets.Icons.UnpaidInvoices />,
     },
-    { name: "Offer", link: "/dashboard/offer", icon: <Assets.Icons.Offer /> },
+    { name: "Offer", icon: <Assets.Icons.Offer /> },
     {
       name: "Inventory Control",
-      link: "/dashboard/inventorycontrol",
       icon: <Assets.Icons.InventoryControl />,
     },
     {
       name: "Member Invoicing",
-      link: "/dashboard/memberinvoicing",
       icon: <Assets.Icons.MemberInvoicing />,
     },
     {
       name: "Import/Export",
-      link: "/dashboard/importexport",
       icon: <Assets.Icons.ImportExport />,
     },
     {
       name: "Logout",
-      link: "/dashboard/logout",
       icon: <Assets.Icons.Logout />,
     },
   ];
+
+  useEffect(() => {
+    const updateDevice = () => {
+      const windowWidth = document.documentElement.clientWidth;
+
+      if (windowWidth <= 600) {
+        setDevice("mobile");
+      } else if (windowWidth <= 1366) {
+        setDevice("tablet");
+      } else {
+        setDevice("desktop");
+        showMenu();
+      }
+    };
+
+    updateDevice();
+    window.addEventListener("resize", updateDevice);
+    return () => {
+      window.removeEventListener("resize", updateDevice);
+    };
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(baseURL + "/webpagecontent/english")
+      .then((res) => res["data"])
+      .then((res) => {
+        setPageContent(res.content["DashboardMenu"]);
+        setMenu(
+          menuIconMap.map((menuItem) => {
+            const linkItem = res.content["DashboardMenu"]["links"].find(
+              (link) => link.name === menuItem.name
+            );
+            return {
+              name: menuItem.name,
+              displayName: linkItem.displayName,
+              link: linkItem.link,
+              icon: menuItem.icon,
+            };
+          })
+        );
+      });
+  }, []);
+
+  useEffect(() => {
+    if (device == "unknown" || device == "desktop") {
+      showMenu();
+    }
+  });
 
   return (
     <div className={menuHide ? "MenuHide" : "Menu"}>
@@ -72,9 +114,6 @@ function Menu({ menuHide, showMenu, hideMenu, toggleMenu }) {
       <div className="menuLine"></div>
       <ul>
         {menu.map((item) => {
-          if (location.pathname == "/dashboard/memberinvoicing") {
-            console.log(location.pathname, item.link);
-          }
           return (
             <li
               key={item.name}

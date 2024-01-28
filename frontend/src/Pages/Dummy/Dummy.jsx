@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Dummy.css";
 
-function Dummy({ setNav }) {
+function Dummy({ showMenu, setNav }) {
   const location = useLocation();
   useEffect(() => {
     if (location.pathname.toLowerCase().includes("/dashboard")) {
@@ -18,6 +18,48 @@ function Dummy({ setNav }) {
     setCurrentLocation(location.pathname);
   }, [location.pathname]);
 
+  const [device, setDevice] = useState("unknown");
+  useEffect(() => {
+    const updateDevice = () => {
+      const windowWidth = document.documentElement.clientWidth;
+
+      if (windowWidth <= 600) {
+        setDevice("mobile");
+      } else if (windowWidth <= 1366) {
+        setDevice("tablet");
+      } else {
+        setDevice("desktop");
+        showMenu();
+      }
+    };
+
+    updateDevice();
+    window.addEventListener("resize", updateDevice);
+    return () => {
+      window.removeEventListener("resize", updateDevice);
+    };
+  }, [location.pathname]);
+  useEffect(() => {
+    const updateDevice = () => {
+      const windowWidth = document.documentElement.clientWidth;
+
+      if (windowWidth <= 600) {
+        setDevice("mobile");
+      } else if (windowWidth <= 1366) {
+        setDevice("tablet");
+      } else {
+        setDevice("desktop");
+        showMenu();
+      }
+    };
+
+    updateDevice();
+    window.addEventListener("resize", updateDevice);
+    return () => {
+      window.removeEventListener("resize", updateDevice);
+    };
+  }, []);
+
   return (
     <div className="Dummy">
       <div className="content">
@@ -27,7 +69,7 @@ function Dummy({ setNav }) {
             <Link to="/terms">Terms</Link>
           </li>
           <li>
-            <Link to="/dashboard/pricelist">Dashboard/Pricelist</Link>
+            <Link to="/dashboard/price-list">Dashboard/Pricelist</Link>
           </li>
         </ul>
         <br />

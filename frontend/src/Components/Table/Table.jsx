@@ -48,52 +48,48 @@ const Table = ({ columns, rows, skipRows }) => {
                 </th>
               )
           )}
-          <th></th>
+          <th key={"unique"}></th>
         </tr>
       </thead>
 
       <tbody>
         {rows.map((row, rowIndex) => (
-          <>
-            <tr key={rowIndex}>
-              <td style={{ width: "2%", padding: 0 }}>
-                {rowIndex == num && <Assets.Icons.RightArrow />}
-              </td>
+          <tr key={rowIndex}>
+            <td style={{ width: "2%", padding: 0 }}>
+              {rowIndex == num && <Assets.Icons.RightArrow />}
+            </td>
 
-              {columns.map(
-                (column, colIndex) =>
-                  !skipRows.includes(column.name) && (
-                    <td
-                      key={colIndex}
-                      style={{
-                        width:
-                          column.width ||
-                          calculateColumnWidth(
-                            columns.length,
-                            columns.filter((col) => col.width)
-                          ),
-                      }}
+            {columns.map(
+              (column, colIndex) =>
+                !skipRows.includes(column.name) && (
+                  <td
+                    key={colIndex}
+                    style={{
+                      width:
+                        column.width ||
+                        calculateColumnWidth(
+                          columns.length,
+                          columns.filter((col) => col.width)
+                        ),
+                    }}
+                  >
+                    <div
+                      className={
+                        column.name != "Dots" ? "customBorder" : "customBorder"
+                      }
                     >
-                      <div
-                        className={
-                          column.name != "Dots"
-                            ? "customBorder"
-                            : "customBorder"
-                        }
-                      >
-                        <p>
-                          {/* {column.name != "Dots" ? row[column.name] : "..."} */}
-                          {row[column.name]}
-                        </p>
-                      </div>
-                    </td>
-                  )
-              )}
-              <td style={{ width: "2%", padding: 0 }}>
-                <Assets.Icons.HorizontalDots />
-              </td>
-            </tr>
-          </>
+                      <p>
+                        {/* {column.name != "Dots" ? row[column.name] : "..."} */}
+                        {row[column.name]}
+                      </p>
+                    </div>
+                  </td>
+                )
+            )}
+            <td style={{ width: "2%", padding: 0 }}>
+              <Assets.Icons.HorizontalDots />
+            </td>
+          </tr>
         ))}
       </tbody>
     </table>

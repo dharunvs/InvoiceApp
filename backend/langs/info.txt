@@ -1,0 +1,8 @@
+a = {articleno: "1234567890",
+description: "This is a big desctiption",
+id: 17,
+inprice: 900900,
+instock: 9900900,
+price: 9900900,
+productservice: "This is a test product",
+unit: "kilometers/hour"}
