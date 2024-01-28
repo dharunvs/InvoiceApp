@@ -39,7 +39,16 @@ th div {
   display: flex;
   align-items: center;
   justify-content: left;
-  gap: 5px;
+}
+
+/* Use margin to create spacing between child elements */
+th div > * {
+  margin-right: 5px;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+th div > :last-child {
+  margin-right: 0;
 }
 
 td div.customBorder {
@@ -97,7 +106,18 @@ tbody tr div.arrowRight svg {
   }
 
   th div {
-    gap: 2px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Use margin to create spacing between child elements */
+  th div > * {
+    margin-right: 2px;
+  }
+
+  /* Optional: Remove margin from the last child to avoid extra spacing */
+  th div > :last-child {
+    margin-right: 0;
   }
 
   td div.customBorder {

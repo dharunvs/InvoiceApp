@@ -48,9 +48,23 @@
   display: flex;
   align-items: center;
   justify-content: left;
-  gap: 15px;
   padding: 10px 0;
   position: relative;
+}
+
+/* Use margin to create spacing between child elements */
+.Menu ul li > * {
+  margin-right: 15px;
+}
+
+.MenuHide ul li > * {
+  margin-right: 15px;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.Menu ul li > :last-child,
+.MenuHide ul li > :last-child {
+  margin-right: 0;
 }
 
 .Menu ul li .active,

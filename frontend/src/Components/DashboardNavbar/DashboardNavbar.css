@@ -16,9 +16,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
   position: relative;
   cursor: pointer;
+}
+
+/* Use margin to create spacing between child elements */
+.DashboardNav .burger > * {
+  margin-bottom: 8px;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.DashboardNav .burger > :last-child {
+  margin-bottom: 0;
 }
 
 .DashboardNav .burger .line1,
@@ -34,7 +43,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+}
+
+/* Use margin to create spacing between child elements */
+.DashboardNav .profile > * {
+  margin-right: 10px;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.DashboardNav .profile > :last-child {
+  margin-right: 0;
 }
 
 .DashboardNav .profile .imgContainer {
@@ -67,7 +85,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+}
+
+/* Use margin to create spacing between child elements */
+.DashboardNav .language > * {
+  margin-right: 10px;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.DashboardNav .language > :last-child {
+  margin-right: 0;
 }
 
 .DashboardNav .language .imgContainer {
@@ -91,7 +118,15 @@
 
   .DashboardNav .burger {
     width: 30px;
-    gap: 6px;
+  }
+
+  .DashboardNav .burger > * {
+    margin-bottom: 6px;
+  }
+
+  /* Optional: Remove margin from the last child to avoid extra spacing */
+  .DashboardNav .burger > :last-child {
+    margin-bottom: 0;
   }
 
   .DashboardNav .burger .line1,
@@ -115,7 +150,15 @@
 
   .DashboardNav .burger {
     width: 30px;
-    gap: 6px;
+  }
+
+  .DashboardNav .burger > * {
+    margin-bottom: 6px;
+  }
+
+  /* Optional: Remove margin from the last child to avoid extra spacing */
+  .DashboardNav .burger > :last-child {
+    margin-bottom: 0;
   }
 
   .DashboardNav .burger .line1,
@@ -140,7 +183,15 @@
 
   .DashboardNav .burger {
     width: 30px;
-    gap: 6px;
+  }
+
+  .DashboardNav .burger > * {
+    margin-bottom: 6px;
+  }
+
+  /* Optional: Remove margin from the last child to avoid extra spacing */
+  .DashboardNav .burger > :last-child {
+    margin-bottom: 0;
   }
 
   .DashboardNav .burger .line1,

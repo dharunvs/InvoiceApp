@@ -96,7 +96,10 @@ function Navbar() {
         {device == "desktop" && (
           <ul>
             {navlinks.map((item) => (
-              <li key={item.name} className={item.name.replace(/[\s/]/g, "")}>
+              <li
+                key={item.name}
+                className={item.name.replace(/[\s/]/g, "") + "NavLink"}
+              >
                 <Link to={item.link}>{item.name}</Link>
               </li>
             ))}

@@ -24,9 +24,9 @@ function PriceList({ menuHide, showMenu, hideMenu, toggleMenu, setNav }) {
       name: "Product/Service",
       icon: <Assets.Icons.DownArrow />,
       className: "ProductService",
-      width: "30%",
+      width: "25%",
     },
-    { name: "Description", width: "30%" },
+    { name: "Description", width: "25%" },
   ];
 
   useEffect(() => {

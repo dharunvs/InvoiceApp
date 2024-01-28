@@ -20,15 +20,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  margin-right: -20px; /* Half of the desired gap */
 }
+
+.Nav .right > * {
+  margin-right: 20px; /* Half of the desired gap */
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.Nav .right > :last-child {
+  margin-right: 0;
+}
+
 .Nav .right ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
   list-style: none;
   font-weight: 600;
+}
+
+.Nav .right ul li {
+  margin-right: 40px;
+}
+
+.Nav .right ul li:last-child {
+  margin-right: 0;
 }
 
 .Nav .right ul a {
@@ -47,9 +64,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   position: relative;
   cursor: pointer;
+}
+
+/* Use margin to create spacing between child elements */
+.Nav .right .language > * {
+  margin-right: 20px;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.Nav .right .language > :last-child {
+  margin-right: 0;
 }
 
 .Nav .right .language p {
@@ -111,9 +137,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
   position: relative;
   cursor: pointer;
+}
+
+/* Use margin to create spacing between child elements */
+.Nav .burger > * {
+  margin-bottom: 5px;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.Nav .burger > :last-child {
+  margin-bottom: 0;
 }
 
 .Nav .burger .line1,

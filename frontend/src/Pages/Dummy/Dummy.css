@@ -14,7 +14,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+}
+
+/* Use margin to create spacing between child elements */
+.Dummy .content > * {
+  margin-bottom: 10px;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.Dummy .content > :last-child {
+  margin-bottom: 0;
 }
 
 .Dummy .content p {

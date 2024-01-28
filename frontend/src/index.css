@@ -24,6 +24,15 @@
   color: var(--black);
 }
 
+* li::-webkit-scrollbar {
+  display: none;
+}
+
+* li {
+  scrollbar-width: 0;
+  -ms-overflow-style: none;
+}
+
 body {
   width: 100%;
   height: 100vh;
@@ -34,8 +43,14 @@ body {
   overflow: hidden;
   position: relative;
   padding-bottom: 10vh;
+  scrollbar-width: 0;
+  -ms-overflow-style: none;
 }
 
+body::-webkit-scrollbar,
+.App::-webkit-scrollbar {
+  display: none;
+}
 .indexBackground {
   width: 100%;
   height: 100vh;
@@ -56,6 +71,8 @@ body {
   /* overflow-x: hidden; */
   overflow-y: auto;
   padding-bottom: 10vh;
+  scrollbar-width: 0;
+  -ms-overflow-style: none;
 }
 
 /* Styles for smaller screens (up to 600px) */

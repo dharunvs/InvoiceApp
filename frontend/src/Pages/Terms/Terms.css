@@ -1,10 +1,20 @@
 .Terms {
   width: 100%;
   display: flex;
-  gap: 3vh;
-  /* height: calc(100vh - var(--navHeight)); */
+  /* Use margin to create spacing between child elements */
+  margin-bottom: -3vh;
   overflow-x: hidden;
   overflow-y: scroll;
+}
+
+/* Use margin to create spacing between child elements */
+.Terms > * {
+  margin-right: 3vh;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.Terms > :last-child {
+  margin-right: 0;
 }
 
 .termsCont {
@@ -46,9 +56,18 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
   border-radius: 20px;
   margin: 0 auto;
+}
+
+/* Use margin to create spacing between child elements */
+.Terms .content > * {
+  margin-bottom: 20px;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.Terms .content > :last-child {
+  margin-bottom: 0;
 }
 
 .Terms .content p {

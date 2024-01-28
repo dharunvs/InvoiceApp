@@ -3,8 +3,12 @@
   height: 100vh;
   overflow: hidden;
   position: fixed;
+  scrollbar-width: 0;
+  -ms-overflow-style: none;
 }
-
+.PriceList::-webkit-scrollbar {
+  display: none;
+}
 /* .FullWidth {
   width: 100vw;
   transform: translateX(calc(var(--dashboarMenuWidth) * -0.45));
@@ -23,7 +27,16 @@
 .PriceList .priceListController .left {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+}
+
+/* Use margin to create spacing between child elements */
+.PriceList .priceListController .left > * {
+  margin-bottom: 10px;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.PriceList .priceListController .left > :last-child {
+  margin-bottom: 0;
 }
 
 .PriceList .priceListController .left .input {
@@ -57,7 +70,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+}
+
+/* Use margin to create spacing between child elements */
+.PriceList .priceListController .right > * {
+  margin-right: 15px;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.PriceList .priceListController .right > :last-child {
+  margin-right: 0;
 }
 
 .PriceList .priceListController .right button {
@@ -67,13 +89,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
   outline: none;
   border: none;
-  /* border: 1px solid var(--grey); */
   box-shadow: var(--boxShadow);
   cursor: pointer;
   transition: 200ms ease-in-out;
+}
+
+/* Use margin to create spacing between child elements */
+.PriceList .priceListController .right button > * {
+  margin-right: 8px;
+}
+
+/* Optional: Remove margin from the last child to avoid extra spacing */
+.PriceList .priceListController .right button > :last-child {
+  margin-right: 0;
 }
 
 .PriceList .priceListController .right button:hover {
@@ -124,7 +154,16 @@
     justify-content: center;
     padding: 20px 0;
     height: max-content;
-    gap: 20px;
+  }
+
+  /* Use margin to create spacing between child elements */
+  .PriceList .priceListController > * {
+    margin-bottom: 20px;
+  }
+
+  /* Optional: Remove margin from the last child to avoid extra spacing */
+  .PriceList .priceListController > :last-child {
+    margin-bottom: 0;
   }
 
   .PriceList .priceListController .left {
@@ -161,7 +200,16 @@
     justify-content: center;
     padding: 20px 0;
     height: max-content;
-    gap: 20px;
+  }
+
+  /* Use margin to create spacing between child elements */
+  .PriceList .priceListController > * {
+    margin-bottom: 20px;
+  }
+
+  /* Optional: Remove margin from the last child to avoid extra spacing */
+  .PriceList .priceListController > :last-child {
+    margin-bottom: 0;
   }
 
   .PriceList .priceListController .left {
@@ -203,7 +251,16 @@
     justify-content: center;
     padding: 20px 0;
     height: max-content;
-    gap: 20px;
+  }
+
+  /* Use margin to create spacing between child elements */
+  .PriceList .priceListController > * {
+    margin-bottom: 20px;
+  }
+
+  /* Optional: Remove margin from the last child to avoid extra spacing */
+  .PriceList .priceListController > :last-child {
+    margin-bottom: 0;
   }
 
   .PriceList .priceListController .left {
@@ -283,7 +340,16 @@
     justify-content: center;
     padding: 20px 0;
     height: max-content;
-    gap: 20px;
+  }
+
+  /* Use margin to create spacing between child elements */
+  .PriceList .priceListController > * {
+    margin-bottom: 20px;
+  }
+
+  /* Optional: Remove margin from the last child to avoid extra spacing */
+  .PriceList .priceListController > :last-child {
+    margin-bottom: 0;
   }
 
   .PriceList .priceListController .left {
