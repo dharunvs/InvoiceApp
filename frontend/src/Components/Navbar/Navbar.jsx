@@ -45,11 +45,9 @@ function Navbar() {
       });
   }, []);
 
-  const handleClick = (event) => {
-    // Prevent the default navigation behavior
+  const preventLink = (event) => {
     event.preventDefault();
 
-    // Add your additional logic here if needed
     console.log("Link clicked, but navigation prevented.");
   };
 
@@ -81,7 +79,7 @@ function Navbar() {
                   style={{ userSelect: "none" }}
                 >
                   <Link
-                    onClick={handleClick}
+                    // onClick={preventLink}
                     to={item.link}
                     style={{ pointerEvents: "auto" }}
                   >

@@ -48,22 +48,33 @@ function Terms({ setNav }) {
   }, []);
 
   return (
-    <div className="Terms">
-      <h1>{pageContent["heading"]}</h1>
-      {pageContent["button"] != undefined && (
-        <button>{pageContent["button"]}</button>
-      )}
-      {pageContent["content"] != undefined && (
-        <div className="content">
-          {pageContent["content"].map((p, key) => (
-            <p key={key}>{p}</p>
-          ))}
+    <>
+      <div className="Terms">
+        <div className="termsCont">
+          <h1>{pageContent["heading"]}</h1>
+          {pageContent["button"] != undefined && (
+            <div className="buttonCont">
+              <button>{pageContent["button"]}</button>
+            </div>
+          )}
+          {pageContent["content"] != undefined && (
+            <div className="content">
+              {pageContent["content"].map((p, key) => (
+                <p key={key}>{p}</p>
+              ))}
+            </div>
+          )}
+          {pageContent["button"] != undefined && (
+            <div className="buttonCont">
+              <button>{pageContent["button"]}</button>
+            </div>
+          )}
         </div>
-      )}
-      {pageContent["button"] != undefined && (
-        <button>{pageContent["button"]}</button>
-      )}
-    </div>
+      </div>
+      {/* <div
+        style={{ width: "100%", height: "30vh", backgroundColor: "red" }}
+      ></div> */}
+    </>
   );
 }
 

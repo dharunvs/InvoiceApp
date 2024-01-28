@@ -108,6 +108,12 @@ function Menu({ menuHide, showMenu, hideMenu, toggleMenu }) {
     }
   });
 
+  const preventLink = (event) => {
+    event.preventDefault();
+
+    console.log("Link clicked, but navigation prevented.");
+  };
+
   return (
     <div className={menuHide ? "MenuHide" : "Menu"}>
       <h2>Menu</h2>
@@ -126,7 +132,17 @@ function Menu({ menuHide, showMenu, hideMenu, toggleMenu }) {
                 }
               ></div>
               {item.icon}
-              <Link to={item.link}>{item.name}</Link>
+              <Link
+                to={item.link}
+                onClick={(e) => {
+                  if (location.pathname == item.link) {
+                    e.preventDefault();
+                    console.log("Link clicked, but navigation prevented.");
+                  }
+                }}
+              >
+                {item.name}
+              </Link>
             </li>
           );
         })}

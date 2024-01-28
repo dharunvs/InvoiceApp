@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Table.css";
 import Assets from "../../Assets";
 
@@ -20,6 +20,19 @@ const Table = ({ columns, rows, skipRows }) => {
   };
 
   const num = Math.floor(Math.random() * rows.length);
+
+  const TableInput = ({ value }) => {
+    const [val, setVal] = useState(value);
+    return (
+      <input
+        type="text"
+        value={val}
+        onChange={(e) => {
+          setVal(e.target.value);
+        }}
+      />
+    );
+  };
 
   return (
     <table>
@@ -78,10 +91,9 @@ const Table = ({ columns, rows, skipRows }) => {
                         column.name != "Dots" ? "customBorder" : "customBorder"
                       }
                     >
-                      <p>
-                        {/* {column.name != "Dots" ? row[column.name] : "..."} */}
-                        {row[column.name]}
-                      </p>
+                      {/* <p>{row[column.name]}</p> */}
+                      {/* <input type="text" value={row[column.name]} /> */}
+                      <TableInput value={row[column.name]} />
                     </div>
                   </td>
                 )

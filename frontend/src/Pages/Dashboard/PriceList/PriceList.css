@@ -1,7 +1,8 @@
 .PriceList {
-  width: 100%;
-  height: 100%;
+  width: calc(100% - var(--dashboarMenuWidth));
+  height: 100vh;
   overflow: hidden;
+  position: fixed;
 }
 
 /* .FullWidth {
@@ -103,9 +104,19 @@
 }
 
 @media only screen and (max-width: 350px) {
+  .PriceList {
+    width: 100%;
+  }
   .PriceList .priceListController .right button p {
     display: none;
   }
+
+  .PriceList .priceListController .left .input input {
+    outline: none;
+    padding: 6px;
+    font-size: 0.9rem;
+  }
+
   .PriceList .priceListController {
     display: flex;
     align-items: center;
@@ -137,6 +148,9 @@
   }
 }
 @media only screen and (min-width: 351px) and (max-width: 600px) {
+  .PriceList {
+    width: 100%;
+  }
   .PriceList .priceListController .right button p {
     display: none;
   }
@@ -172,6 +186,9 @@
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1023px) {
+  .PriceList {
+    width: 100%;
+  }
   .PriceList .priceListController .right button p {
     display: none;
   }
@@ -211,6 +228,9 @@
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1366px) {
+  .PriceList {
+    width: 100%;
+  }
   /* .PriceList .priceListController .right button p {
     display: none;
   } */
@@ -250,6 +270,9 @@
 
 @media only screen and (max-width: 600px),
   only screen and (max-device-width: 600px) and (orientation: landscape) {
+  .PriceList {
+    width: 100%;
+  }
   .PriceList .priceListController .right button p {
     display: none;
   }
@@ -281,5 +304,16 @@
 
   .PriceList .priceListController .right button {
     width: 100%;
+    padding: 6px;
+  }
+
+  .PriceList .priceListController .right button svg {
+    width: 20px;
+    height: 20px;
+  }
+  .PriceList .priceListController .left .input input {
+    outline: none;
+    padding: 6px;
+    font-size: 0.9rem;
   }
 }

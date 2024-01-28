@@ -10,6 +10,7 @@
 
   --dashboarMenuWidth: 300px;
   --dashboardNavHeight: 12vh;
+  --navHeight: 12vh;
   --profileIcon: 70px;
 
   --boxShadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
@@ -25,18 +26,36 @@
 
 body {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--white);
+  /* background: url("./Assets//Images/background.jpg");
+  background-position: bottom;
+  background-size: cover; */
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 10vh;
+}
+
+.indexBackground {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  object-position: center center;
+  z-index: -1;
 }
 
 .App {
   width: 100%;
   height: 100vh;
-  background: url("./Assets//Images/background.jpg");
+  /* background: url("./Assets//Images/background.jpg");
   background-position: fixed;
-  background-size: cover;
-  overflow-x: hidden;
+  background-size: cover; */
+  /* overflow-x: hidden; */
   overflow-y: auto;
+  padding-bottom: 10vh;
 }
 
 /* Styles for smaller screens (up to 600px) */
