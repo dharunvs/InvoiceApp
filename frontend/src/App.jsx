@@ -81,23 +81,33 @@ function App() {
           <Route
             path="/"
             exact
-            element={<Pages.Dummy setNav={setDashboardNav} />}
+            element={
+              <Pages.Dummy showMenu={showMenu} setNav={setDashboardNav} />
+            }
           />
           <Route
             path="/order"
-            element={<Pages.Dummy setNav={setDashboardNav} />}
+            element={
+              <Pages.Dummy showMenu={showMenu} setNav={setDashboardNav} />
+            }
           />
           <Route
             path="/customers"
-            element={<Pages.Dummy setNav={setDashboardNav} />}
+            element={
+              <Pages.Dummy showMenu={showMenu} setNav={setDashboardNav} />
+            }
           />
           <Route
             path="/about"
-            element={<Pages.Dummy setNav={setDashboardNav} />}
+            element={
+              <Pages.Dummy showMenu={showMenu} setNav={setDashboardNav} />
+            }
           />
           <Route
             path="/contact"
-            element={<Pages.Dummy setNav={setDashboardNav} />}
+            element={
+              <Pages.Dummy showMenu={showMenu} setNav={setDashboardNav} />
+            }
           />
           <Route
             path="/terms"
@@ -117,7 +127,9 @@ function App() {
           />
           <Route
             path="/dummy"
-            element={<Pages.Dummy setNav={setDashboardNav} />}
+            element={
+              <Pages.Dummy showMenu={showMenu} setNav={setDashboardNav} />
+            }
           />
         </Routes>
       </Router>

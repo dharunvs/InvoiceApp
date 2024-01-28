@@ -44,10 +44,9 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-origins = ["http://localhost:5173"]  # Add your frontend's URL(s) here
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -75,3 +74,7 @@ def read_item(lang: str, db: Session = Depends(get_db)):
 def read_pricelist(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     pricelist = db.query(PriceList).offset(skip).limit(limit).all()
     return pricelist
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
